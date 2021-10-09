@@ -1,5 +1,5 @@
 - name: build galene
   ansible.builtin.command:
     cmd: "CGO_ENABLED=0 go build -ldflags='-s -w'"
-    chdir: {{ galene.folder }}
+    chdir: "{{ galene.folder }}"
   become_user: galene

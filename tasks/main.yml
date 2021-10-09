@@ -6,13 +6,13 @@
   ansible.builtin.user:
     name: galene
     system: yes
-    home: {{ galene.folder }}
+    home: "{{ galene.folder }}"
     create_home: yes
 
 - name: Clone galene repository
   ansible.builtin.git:
     repo: https://github.com/jech/galene 
-    dest: {{ galene.folder }}
+    dest: "{{ galene.folder }}"
   become_user: galene
   notify: build galene
 
