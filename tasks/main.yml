@@ -1,0 +1,21 @@
+- name: Install certbot
+  ansible.builtin.apt:
+    name: golang
+
+- name: Create galene user
+  ansible.builtin.user:
+    name: galene
+    system: yes
+    home: {{ galene.folder }}
+    create_home: yes
+
+- name: Clone galene repository
+  ansible.builtin.git:
+    repo: https://github.com/jech/galene 
+    dest: {{ galene.folder }}
+  become_user: galene
+  notify: build galene
+
+# - name: Deploy configuration
+
+# - name: Deploy systemd configuration
