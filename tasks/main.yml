@@ -16,7 +16,31 @@
   become_user: galene
   notify: build galene
 
-# - name: Deploy configuration
+- name: Create config folder
+  ansible.builtin.file:
+    name: "{{ galene.folder }}/server/config"
+    state: directory
+    owner: galene
+
+- name: Deploy configuration
+  ansible.builtin.template:
+    src: srv/galene/server/config
+    dest: "{{ galene.folder }}/server/config"
+    owner: galene
+  notify: restart galene
+
+- name: Deploy nginx configuration
+  ansible.builtin.template:
+    src: etc/nginx/sites-available/galene
+    dest: /etc/nginx/sites-available/galene
+  notify: restart nginx
+
+- name: Enable nginx configuration
+  ansible.builtin.file:
+    src: /etc/nginx/sites-available/galene
+    dest: /etc/nginx/sites-enabled/galene
+    state: link
+  notify: restart nginx
 
 - name: Deploy systemd configuration
   ansible.builtin.template:

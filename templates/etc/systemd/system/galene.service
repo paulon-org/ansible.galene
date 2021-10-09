@@ -3,12 +3,14 @@
 Description=Galene
 After=network.target
 
+
 [Service]
 Type=simple
 WorkingDirectory={{ galene.folder }}/server
 User=galene
 Group=galene
-ExecStart={{ galene.folder }}/server/galene
+EnvironmentFile={{ galene.folder }}/server/config
+ExecStart={{ galene.folder }}/server/galene $ARGS
 LimitNOFILE=65536
 
 [Install]

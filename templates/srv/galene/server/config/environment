@@ -1,0 +1,30 @@
+{{ ansible_managed | comment }}
+ARGS="--http {{ galene.address }}:{{ galene.port }}"
+#   -cpuprofile file
+#     	store CPU profile in file
+#   -data directory
+#     	data directory (default "./data/")
+#   -groups directory
+#     	group description directory (default "./groups/")
+#   -http address
+#     	web server address (default ":8443")
+#   -insecure
+#     	act as an HTTP server rather than HTTPS
+#   -mdns
+#     	gather mDNS addresses
+#   -memprofile file
+#     	store memory profile in file
+#   -mutexprofile file
+#     	store mutex profile in file
+#   -recordings directory
+#     	recordings directory (default "./recordings/")
+#   -redirect host
+#     	redirect to canonical host
+#   -relay-only
+#     	require use of TURN relays for all media traffic
+#   -static directory
+#     	web server root directory (default "./static/")
+#   -turn address
+#     	built-in TURN server address ("" to disable) (default "auto")
+#   -udp-range range
+#     	UDP port range
