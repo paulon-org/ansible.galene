@@ -9,7 +9,7 @@ Type=simple
 WorkingDirectory={{ galene.folder }}/server
 User=galene
 Group=galene
-EnvironmentFile={{ galene.folder }}/server/config
+EnvironmentFile={{ galene.folder }}/server/config/envirnment
 ExecStart={{ galene.folder }}/server/galene $ARGS
 LimitNOFILE=65536
 

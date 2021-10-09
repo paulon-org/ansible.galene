@@ -24,8 +24,8 @@
 
 - name: Deploy configuration
   ansible.builtin.template:
-    src: srv/galene/server/config
-    dest: "{{ galene.folder }}/server/config"
+    src: srv/galene/server/config/envirnment
+    dest: "{{ galene.folder }}/server/config/envirnment"
     owner: galene
   notify: restart galene
 
