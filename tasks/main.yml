@@ -1,4 +1,4 @@
-- name: Install certbot
+- name: Install golang
   ansible.builtin.apt:
     name: golang
 
