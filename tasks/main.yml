@@ -18,4 +18,8 @@
 
 # - name: Deploy configuration
 
-# - name: Deploy systemd configuration
+- name: Deploy systemd configuration
+  ansible.builtin.template:
+    src: etc/systemd/system/galene.service
+    dest: /etc/systemd/system/galene.service
+  notify: restart galene

@@ -1,0 +1,15 @@
+{{ ansible_managed | comment }}
+[Unit]
+Description=Galene
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory={{ galene.folder }}/server
+User=galene
+Group=galene
+ExecStart={{ galene.folder }}/server/galene
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target

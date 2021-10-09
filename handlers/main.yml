@@ -5,3 +5,9 @@
   environment:
     CGO_ENABLED: 0
   become_user: galene
+
+- name: restart galene
+  ansible.builtin.systemd:
+    name: galene
+    state: restarted
+    enabled: yes
