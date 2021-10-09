@@ -1,7 +1,7 @@
 - name: build galene
   ansible.builtin.command:
     cmd: go build -ldflags='-s -w'
-    chdir: "{{ galene.folder }}"
+    chdir: "{{ galene.folder }}/server"
   environment:
     CGO_ENABLED: 0
   become_user: galene
